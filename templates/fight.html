@@ -45,7 +45,13 @@
         <hr>
         <div class="row">
           <div class="col align-content-center">
-            <p><em>{{ result }}</em></p>
+            {% if results is string %}
+              <p>{{ results }}</p>           
+            {% else %}
+              {% for result in results %}                
+                <p><em>{{ result }}</em></p>
+              {% endfor %}
+            {% endif %}            
             <p>{{ battle_result }}</p>
           </div>
         </div>
